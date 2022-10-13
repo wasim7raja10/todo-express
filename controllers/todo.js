@@ -33,3 +33,34 @@ export const createTodo = (req, res) => {
   });
 };
 
+export const getTodoById = (req, res) => {
+  // get the id from the request params
+  const { id } = req.params;
+  // find the todo by id
+  Todo.findById(id).exec((err, todo) => {
+    if (err || !todo) {
+      return res.status(400).json({
+        error: "Todo not found",
+      });
+    }
+    // return the todo in json format
+    res.json(todo);
+  });
+}
+
+export const updateTodo = (req, res) => {
+  // get the id from the request params
+  const { id } = req.params;
+  // find the todo by id and update it
+  Todo.findByIdAndUpdate(id, { $set: req.body }, { new: true }).exec(
+    (err, todo) => {
+      if (err || !todo) {
+        return res.status(400).json({
+          error: "Todo not found",
+        });
+      }
+      // return the updated todo in json format
+      res.json(todo);
+    }
+  );
+}
