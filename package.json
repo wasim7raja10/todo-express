@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/wasim7raja10/todo-express#readme",
   "dependencies": {
-    "body-parser": "^1.20.1",
     "express": "^4.18.2",
     "morgan": "^1.10.0"
   },
