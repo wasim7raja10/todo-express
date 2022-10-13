@@ -2,7 +2,6 @@ import { Router } from "express";
 const router = Router();
 
 // these are the controllers
-// we will create all of them in the future
 import { getAllTodos, createTodo } from "../controllers/todo.js";
 
 // to get all the todos

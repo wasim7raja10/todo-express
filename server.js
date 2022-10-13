@@ -5,12 +5,11 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 dotenv.config();
 
-// we are using port 8000
-const port = process.env.PORT || 8000;
-
-// we will create these todoRoutes in the future
 import router from "./routes/todo.js";
 import dbConnect from "./db/connect.js";
+
+// we are using port 8000
+const port = process.env.PORT || 8000;
 
 const app = express();
 
