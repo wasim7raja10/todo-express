@@ -6,7 +6,7 @@ import morgan from "morgan";
 dotenv.config();
 
 import router from "./routes/todo.js";
-import dbConnect from "./db/connect.js";
+import dbConnect from "./utils/connect.js";
 
 // we are using port 8000
 const port = process.env.PORT || 8000;
