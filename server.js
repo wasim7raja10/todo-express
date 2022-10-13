@@ -2,6 +2,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import morgan from "morgan";
 dotenv.config();
 
 // we are using port 8000
@@ -18,6 +19,8 @@ dbConnect();
 
 // middleware for cors to allow cross origin resource sharing
 app.use(cors());
+// middleware for logging
+app.use(morgan("dev"));
 // middleware to convert our request data into JSON format
 app.use(express.json());
 
