@@ -10,7 +10,7 @@ const port = process.env.PORT || 8000;
 
 // we will create these todoRoutes in the future
 import router from "./routes/todo.js";
-import dbConnect from "./db/conn.js";
+import dbConnect from "./db/connect.js";
 
 const app = express();
 
