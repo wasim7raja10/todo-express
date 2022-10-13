@@ -64,3 +64,18 @@ export const updateTodo = (req, res) => {
     }
   );
 }
+
+export const deleteTodo = (req, res) => {
+  // get the id from the request params
+  const { id } = req.params;
+  // find the todo by id and delete it
+  Todo.findByIdAndDelete(id).exec((err, todo) => {
+    if (err || !todo) {
+      return res.status(400).json({
+        error: "Todo not found",
+      });
+    }
+    // return the deleted todo in json format
+    res.json(todo);
+  });
+}
