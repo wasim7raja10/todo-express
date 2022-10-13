@@ -1,14 +1,15 @@
 import mongoose from 'mongoose';
 
-function dbConnect() {
-  mongoose.connect(process.env.ATLAS_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
-  .then(() => {
-    console.log("CONNECTED TO DATABASE");
-  });
+async function dbConnect() {
+  const dbUri = process.env.ATLAS_URI
+
+  try {
+    await mongoose.connect(dbUri);
+    console.log("DB connected");
+  } catch (error) {
+    console.error("Could not connect to db");
+    process.exit(1);
+  }
 }
 
 

@@ -13,9 +13,6 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
-// DB connection
-dbConnect();
-
 // middleware for cors to allow cross origin resource sharing
 app.use(cors());
 // middleware for logging
@@ -27,6 +24,8 @@ app.use(express.json());
 app.use("/api", router);
 
 // start the server in the port 8000
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Listening to http://localhost:${port}`);
+  // DB connection
+  await dbConnect();
 });
